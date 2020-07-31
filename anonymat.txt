@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include "libimage.h"
+
+void demande_double(char * message, double *p_double) {
+  int res_scanf; /* le resultat du scanf */
+
+  printf("%s", message);
+  res_scanf = scanf("%lf", p_double);
+  if (res_scanf != 1) {
+    printf("Lecture d'un double impossible!\n");
+    exit(1);
+  }
+}
+
+void demande_chaine_1001(char * message, char *chaine) {
+  int res_scanf; /* le resultat du scanf */
+
+  printf("%s", message);
+  res_scanf = scanf("%1000s", chaine);
+  if (res_scanf != 1) {
+    printf("Lecture d'une chaine impossible!\n");
+    exit(1);
+  }
+}
+
+int main() {
+  char nom_image_in[1001];  /* nom du fichier image lu */
+  char nom_image_out[1001]; /* nom du fichier image produit */
+  double cr;                /* le rayon d'un cercle */
+  double cx, cy;            /* les coordonnees du centre du cercle */
+  image in;                 /* image d'origine */
+  
+  demande_chaine_1001("Nom du fichier image 'in' ?\n", nom_image_in);
+  
+  in = lire_image(nom_image_in);
+  printf("TODO: dupliquer l'image 'in' dans l'image 'out'\n");
+  
+  demande_double("Rayon du cercle ?\n", &cr);
+  while (cr > 0) {
+    demande_double("Coordonnee X du centre ?\n", &cx);
+    demande_double("Coordonnee Y du centre ?\n", &cy);
+    
+    printf("TODO: calculer la moyenne des couleurs du cercle (%g,%g) de rayon %g dans 'in'\n",
+	   cx, cy, cr);
+    printf("TODO: appliquer cette moyenne dans le cercle (%g,%g) de rayon %g dans 'out'\n",
+	   cx, cy, cr);
+
+    demande_double("Rayon du cercle ?\n", &cr);
+  }
+  
+  demande_chaine_1001("Nom du fichier image 'out' ?\n", nom_image_out);
+  printf("TODO: enregistrer l'image 'out' dans le fichier '%s'\n", nom_image_out);
+  
+  detruire_image(in);
+  printf("TODO: detruire l'image 'out'\n");
+}

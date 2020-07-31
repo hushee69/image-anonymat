@@ -1,0 +1,4 @@
+images/une-personne.ppm
+40 315 220
+0
+images/une-personne-flou.ppm

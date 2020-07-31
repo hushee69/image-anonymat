@@ -1,0 +1,13 @@
+images/enfants.ppm
+50
+28
+182
+55
+218
+160
+48
+521
+150
+0
+images/enfants-flou.ppm
+
